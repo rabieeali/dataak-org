@@ -22,7 +22,7 @@ export const Person = () => {
       <g mask="url(#mask0_1_3806)">
         <rect x="10.7891" y="8.73633" width="28.4211" height="26.5263" fill="url(#pattern0_1_3806)" />
         <g filter="url(#filter0_d_1_3806)">
-          <rect x="7" y="4" width="36" height="36" rx="6" fill="black" fill-opacity="0.03" />
+          <rect x="7" y="4" width="36" height="36" rx="6" fill="black" fillOpacity="0.03" />
           <rect x="7" y="4" width="36" height="36" rx="6" fill="url(#pattern1_1_3806)" />
           <rect x="7.5" y="4.5" width="35" height="35" rx="5.5" stroke="#EDF2F7" />
         </g>
@@ -38,9 +38,9 @@ export const Person = () => {
           width="50"
           height="50"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

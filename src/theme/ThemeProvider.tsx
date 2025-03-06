@@ -11,6 +11,8 @@ export const ThemeProvider = ({ children }: Props) => {
   const colorGreen = rootStyles.getPropertyValue('--color-green').trim()
   const colorGreenHover = rootStyles.getPropertyValue('--color-green-hover').trim()
   const colorGreenLight = rootStyles.getPropertyValue('--color-green-light').trim()
+  const colorPale = rootStyles.getPropertyValue('--color-pale').trim()
+  const colorDark = rootStyles.getPropertyValue('--color-dark').trim()
 
   const theme = useMemo(
     () =>
@@ -18,7 +20,7 @@ export const ThemeProvider = ({ children }: Props) => {
         direction: 'rtl',
         palette: {
           success: {
-            main: colorGreen || '#199DA3', // Fallback in case CSS variable is undefined
+            main: colorGreen || '#199DA3',
           },
         },
         components: {
@@ -63,9 +65,40 @@ export const ThemeProvider = ({ children }: Props) => {
               },
             },
           },
+
+          MuiOutlinedInput: {
+            styleOverrides: {
+              root: {
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: colorPale,
+                },
+                '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: colorPale,
+                },
+                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: colorPale, 
+                },
+                fontSize: '12px',
+              },
+              input: {
+                fontSize: '12px', 
+              },
+            },
+          },
+          MuiInputLabel: {
+            styleOverrides: {
+              root: {
+                fontSize: '12px',
+                color: colorPale,
+                "&.Mui-focused": {
+                  color:  colorDark, 
+                },
+              },
+            },
+          },
         },
       }),
-    [colorGreen, colorGreenHover, colorGreenLight, colorWhite]
+    [colorGreen, colorGreenHover, colorGreenLight, colorWhite, colorPale,colorDark]
   )
 
   return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>

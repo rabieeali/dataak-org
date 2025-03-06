@@ -11,7 +11,7 @@ export const useQuestionListQuery = (page: string) => {
 
   const query = useQuery<QuestionListResponse>({
     queryFn: fetcher,
-    queryKey: [`${queryKeys.questionsList}__page__${page}`],
+    queryKey: [queryKeys.questionsList, "page", page],
   })
 
   return query
