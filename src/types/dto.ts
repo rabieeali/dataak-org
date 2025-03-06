@@ -1,0 +1,20 @@
+type QuestionType = {
+  id: string
+  title: string
+  text: string
+  answersCount: string
+  time: string
+  date: string
+}
+
+type QuestionListResponse = {
+  data: QuestionType[]
+  first: number
+  items: number
+  last: number
+  next: number
+  pages: number
+  prev: number
+}
+
+export type { QuestionType, QuestionListResponse }
