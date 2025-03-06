@@ -1,6 +1,9 @@
+import { routes } from '@/constant/variables'
+import { Link } from 'react-router-dom'
+
 export const Logo = () => {
   return (
-    <>
+    <Link to={routes.homepage}>
       <svg
         width="50"
         height="50"
@@ -36,6 +39,6 @@ export const Logo = () => {
           />
         </defs>
       </svg>
-    </>
+    </Link>
   )
 }

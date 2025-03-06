@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 export default function Homepage() {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Button variant="contained">
-        <Link to={routes.questions}>مشاهده سوالات</Link>
+      <Button color="success" variant="contained">
+        <Link style={{ color: 'var(--color-white)' }} to={routes.questions}>
+          مشاهده سوالات
+        </Link>
       </Button>
     </Box>
   )

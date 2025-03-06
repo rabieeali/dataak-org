@@ -1,0 +1,26 @@
+:root {
+  --color-white: #fff;
+  --color-green: #199da3;
+  --color-green-hover: #157e80;
+  --color-green-light: #199da310;
+}
+
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-success {
+  color: var(--color-green);
+}
