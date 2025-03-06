@@ -18,8 +18,8 @@ type QuestionListResponse = {
 }
 
 type AddQuestionBody = {
-  title: string;
-  text: string;
+  title: string
+  text: string
 }
 
 export type { QuestionType, QuestionListResponse, AddQuestionBody }
