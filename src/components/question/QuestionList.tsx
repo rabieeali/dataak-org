@@ -36,6 +36,7 @@ export const QuestionList = () => {
         {questionList?.data.map((q) => (
           <Fragment key={q.id}>
             <QuestionListItem
+              shouldShowDetails={true}
               answersCount={q.answersCount}
               date={q.date}
               id={q.id}

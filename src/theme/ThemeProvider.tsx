@@ -76,12 +76,12 @@ export const ThemeProvider = ({ children }: Props) => {
                   borderColor: colorPale,
                 },
                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: colorPale, 
+                  borderColor: colorPale,
                 },
                 fontSize: '12px',
               },
               input: {
-                fontSize: '12px', 
+                fontSize: '12px',
               },
             },
           },
@@ -90,15 +90,15 @@ export const ThemeProvider = ({ children }: Props) => {
               root: {
                 fontSize: '12px',
                 color: colorPale,
-                "&.Mui-focused": {
-                  color:  colorDark, 
+                '&.Mui-focused': {
+                  color: colorDark,
                 },
               },
             },
           },
         },
       }),
-    [colorGreen, colorGreenHover, colorGreenLight, colorWhite, colorPale,colorDark]
+    [colorGreen, colorGreenHover, colorGreenLight, colorWhite, colorPale, colorDark]
   )
 
   return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>

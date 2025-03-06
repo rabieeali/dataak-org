@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { routes } from '@/constant/variables'
 
 interface Props {
+  shouldShowDetails?: boolean
   id: string
   title: string
   text: string
@@ -13,11 +14,10 @@ interface Props {
   date: string
 }
 
-export const QuestionListItem = ({ id, answersCount, date, text, time, title }: Props) => {
+export const QuestionListItem = ({ shouldShowDetails, id, answersCount, date, text, time, title }: Props) => {
   return (
     <Card variant="outlined" sx={{ boxShadow: 1, borderRadius: 2 }}>
       {/* Header Section */}
-
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 0.25rem' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Person />
@@ -26,7 +26,7 @@ export const QuestionListItem = ({ id, answersCount, date, text, time, title }: 
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, paddingRight: '0.5rem' }}>
           <Typography variant="caption" color="text.secondary">
             ساعت: <span style={{ color: '#000' }}>{time}</span>
           </Typography>
@@ -47,15 +47,17 @@ export const QuestionListItem = ({ id, answersCount, date, text, time, title }: 
       {/* Footer Section */}
       <Box display="flex" justifyContent="space-between" alignItems="center" p={2}>
         <Box display="flex" alignItems="center" gap={1} color="text.secondary">
-          <QuestionAnswerIcon fontSize='small' />
+          <QuestionAnswerIcon fontSize="small" />
 
           <Typography variant="caption">تعداد پاسخ‌ها: {answersCount}</Typography>
         </Box>
-        <Button color="success" variant="outlined" size="small">
-          <Link style={{ color: 'var(--color-green)' }} to={`${routes.answers}/${id}`}>
-            مشاهده جزئیات
-          </Link>
-        </Button>
+        {shouldShowDetails && (
+          <Button color="success" variant="outlined" size="small">
+            <Link style={{ color: 'var(--color-green)' }} to={`${routes.answers}/${id}`}>
+              مشاهده جزئیات
+            </Link>
+          </Button>
+        )}
       </Box>
     </Card>
   )
