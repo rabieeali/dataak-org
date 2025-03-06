@@ -1,5 +1,6 @@
 import { ChangeEvent, Fragment } from 'react'
-import { QuestionListProps } from '@/types/prop-types'
+import { urlParams } from '@/constant/variables'
+import { useSearchParams } from 'react-router-dom'
 import { useQuestionListQuery } from '@/hooks'
 import { Box, Pagination, PaginationItem } from '@mui/material'
 import { QuestionListItem } from './QuestionListItem'
@@ -9,7 +10,9 @@ import CircularProgress from '@mui/material/CircularProgress'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-export const QuestionList = ({ currentPage }: QuestionListProps) => {
+export const QuestionList = () => {
+  const [searchParams] = useSearchParams()
+  const currentPage = searchParams.get(urlParams.page) || '1'
   const navigate = useNavigate()
   const { data: questionList, isLoading } = useQuestionListQuery(currentPage)
 

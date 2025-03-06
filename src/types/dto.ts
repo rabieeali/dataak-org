@@ -17,4 +17,9 @@ type QuestionListResponse = {
   prev: number
 }
 
-export type { QuestionType, QuestionListResponse }
+type AddQuestionBody = {
+  title: string;
+  text: string;
+}
+
+export type { QuestionType, QuestionListResponse, AddQuestionBody }

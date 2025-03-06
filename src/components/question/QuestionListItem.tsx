@@ -47,7 +47,7 @@ export const QuestionListItem = ({ id, answersCount, date, text, time, title }: 
       {/* Footer Section */}
       <Box display="flex" justifyContent="space-between" alignItems="center" p={2}>
         <Box display="flex" alignItems="center" gap={1} color="text.secondary">
-          <QuestionAnswerIcon />
+          <QuestionAnswerIcon fontSize='small' />
 
           <Typography variant="caption">تعداد پاسخ‌ها: {answersCount}</Typography>
         </Box>
