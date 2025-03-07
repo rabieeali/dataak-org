@@ -1,15 +1,17 @@
-import { ChangeEvent, Fragment } from 'react'
+import { ChangeEvent, Fragment, lazy } from 'react'
 import { urlParams } from '@/constant/variables'
 import { useSearchParams } from 'react-router-dom'
 import { useQuestionListQuery } from '@/hooks/question'
 import { Box, Pagination, PaginationItem } from '@mui/material'
-import { QuestionListItem } from './QuestionListItem'
 import { useNavigate } from 'react-router-dom'
 import { routes } from '@/constant/variables'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { Progress } from '../common/Progress'
 
+const QuestionListItem = lazy(() =>
+  import('@/components/question/QuestionListItem').then((module) => ({ default: module.QuestionListItem }))
+)
 
 export const QuestionList = () => {
   const [searchParams] = useSearchParams()

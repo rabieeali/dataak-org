@@ -1,11 +1,17 @@
+import { lazy } from 'react'
 import { Container } from '@/components/container'
-import { QuestionList } from '@/components/question/QuestionList'
-import { AddQuestion } from '@/components/question/AddQuestion'
+
+const QuestionList = lazy(() =>
+  import('@/components/question/QuestionList').then((module) => ({ default: module.QuestionList }))
+)
+const AddQuestion = lazy(() =>
+  import('@/components/question/AddQuestion').then((module) => ({ default: module.AddQuestion }))
+)
 
 export default function Questions() {
-  return (
-    <Container leftAdornment={<AddQuestion />} title="سوالات">
-      <QuestionList />
-    </Container>
+  return (    
+      <Container leftAdornment={<AddQuestion />} title="سوالات">
+        <QuestionList />
+      </Container>
   )
 }
