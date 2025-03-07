@@ -1,13 +1,12 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { Button, CircularProgress, TextField } from '@mui/material'
-import { useAddQuestionMutation } from '@/hooks'
-import Box from '@mui/material/Box'
+import { Box, Button, CircularProgress, TextField } from '@mui/material'
+import { useAddQuestionMutation } from '@/hooks/question'
 
 interface Props {
   handleClose: () => void
 }
 export const AddForm = ({ handleClose }: Props) => {
-  const { mutate, isPending } = useAddQuestionMutation()
+  const { mutate, isPending, isSuccess } = useAddQuestionMutation()
 
   const [formValues, setFormValues] = useState({ title: '', text: '' })
 
@@ -22,11 +21,11 @@ export const AddForm = ({ handleClose }: Props) => {
   }
 
   useEffect(() => {
-    if (isPending) {
+    if (isSuccess) {
       setFormValues({ title: '', text: '' })
       handleClose()
     }
-  }, [isPending, handleClose])
+  }, [isSuccess, handleClose])
 
   return (
     <Box component="form" onSubmit={handleSubmit}>

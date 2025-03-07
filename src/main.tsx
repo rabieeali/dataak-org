@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './styles/index.css'
@@ -9,12 +9,14 @@ import { queryClient } from '@/config/tanstack-query.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <RTLProvider>
-          <App />
-        </RTLProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <Suspense fallback={<p>loading ...</p>}>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <RTLProvider>
+            <App />
+          </RTLProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </Suspense>
   </StrictMode>
 )

@@ -4,6 +4,7 @@ import { axios } from '@/config/axios'
 import { queryClient } from '@/config/tanstack-query'
 import { nanoid } from 'nanoid'
 import type { AddQuestionBody } from '@/types/dto'
+import { getPersianDate, getPersianTime } from '@/lib/persian-helper'
 
 export const useAddQuestionMutation = () => {
   const fetcher = async (newQuestion: AddQuestionBody) => {
@@ -12,9 +13,9 @@ export const useAddQuestionMutation = () => {
       id: nanoid(),
       title: newQuestion.title,
       text: newQuestion.text,
-      answersCount: '13',
-      time: '16:48',
-      date: '1400/2/15',
+      answersCount: '0',
+      time: getPersianTime(),
+      date: getPersianDate(),
     }
     const { data } = await axios.post(endpoints.questions, toSend)
     return data

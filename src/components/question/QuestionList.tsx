@@ -1,14 +1,15 @@
 import { ChangeEvent, Fragment } from 'react'
 import { urlParams } from '@/constant/variables'
 import { useSearchParams } from 'react-router-dom'
-import { useQuestionListQuery } from '@/hooks'
+import { useQuestionListQuery } from '@/hooks/question'
 import { Box, Pagination, PaginationItem } from '@mui/material'
 import { QuestionListItem } from './QuestionListItem'
 import { useNavigate } from 'react-router-dom'
 import { routes } from '@/constant/variables'
-import CircularProgress from '@mui/material/CircularProgress'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { Progress } from '../common/Progress'
+
 
 export const QuestionList = () => {
   const [searchParams] = useSearchParams()
@@ -18,16 +19,12 @@ export const QuestionList = () => {
 
   const allPages = questionList?.pages
 
-  const handleChange = (event: ChangeEvent<unknown>, p: number) => {
+  const handleChange = (_event: ChangeEvent<unknown>, p: number) => {
     navigate(`${routes.questions}?page=${p}`)
   }
 
-  if (isLoading) {
-    return (
-      <Box sx={{ display: 'grid', placeItems: 'center' }}>
-        <CircularProgress color="inherit" />
-      </Box>
-    )
+  if (isLoading || !questionList) {
+    return <Progress />
   }
 
   return (
@@ -48,16 +45,18 @@ export const QuestionList = () => {
         ))}
       </Box>
 
-      <Box sx={{ marginBlock: '1rem', display: 'flex', justifyContent: 'right' }}>
-        <Pagination
-          page={+currentPage}
-          onChange={handleChange}
-          count={allPages}
-          renderItem={(item) => (
-            <PaginationItem slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }} {...item} />
-          )}
-        />
-      </Box>
+      {questionList?.data?.length > 0 && (
+        <Box sx={{ marginBlock: '1rem', display: 'flex', justifyContent: 'right' }}>
+          <Pagination
+            page={+currentPage}
+            onChange={handleChange}
+            count={allPages}
+            renderItem={(item) => (
+              <PaginationItem slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }} {...item} />
+            )}
+          />
+        </Box>
+      )}
     </>
   )
 }
