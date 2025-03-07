@@ -1,0 +1,41 @@
+:root {
+  --color-white: #fff;
+  --color-green: #199da3;
+  --color-green-hover: #157e80;
+  --color-green-light: #199da310;
+  --color-pale: #ccc;
+  --color-dark: #454545;
+}
+
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-success {
+  color: var(--color-green);
+}
+
+.modal-basic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-green-light);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 5px;
+}
