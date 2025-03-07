@@ -1,6 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Answers, Homepage, Questions } from '@/pages'
 import { routes } from '@/constant/variables'
+import { lazy, Suspense } from 'react'
+
+const Homepage = lazy(() => import('@/pages/Homepage'))
+const Questions = lazy(() => import('@/pages/Questions'))
+const Answers = lazy(() => import('@/pages/Answers'))
 
 const { homepage, questions, answers } = routes
 const router = createBrowserRouter([
@@ -19,6 +23,10 @@ const router = createBrowserRouter([
 ])
 
 const App = () => {
-  return <RouterProvider router={router} />
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <RouterProvider router={router} />
+    </Suspense>
+  )
 }
 export default App
