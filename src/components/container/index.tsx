@@ -5,7 +5,7 @@ import { ContainerProps } from '@/types/prop-types'
 export const Container = ({ children, title, leftAdornment }: ContainerProps) => {
   return (
     <Box display="flex" flexDirection="column" gap={2}>
-      {/* Header */}
+      {/* header */}
       <AppBar position="static" color="inherit" elevation={1}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6" fontWeight="bold">
@@ -19,7 +19,7 @@ export const Container = ({ children, title, leftAdornment }: ContainerProps) =>
         </Toolbar>
       </AppBar>
 
-      {/* Main Content */}
+      {/* main content */}
       <Box component="main" px={2}>
         {children}
       </Box>

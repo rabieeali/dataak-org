@@ -1,4 +1,5 @@
 ﻿@font-face {
+   font-display: swap;
   font-family: 'iranSansBold';
   src:
     url('./IRANSansWeb_Bold.ttf') format('ttf'),
@@ -8,6 +9,7 @@
 }
 
 @font-face {
+   font-display: swap;
   font-family: 'iranSansBlack';
   src:
     url('./IRANSansWeb_Black.ttf') format('ttf'),
@@ -17,6 +19,7 @@
 }
 
 @font-face {
+   font-display: swap;
   font-family: 'iranSansUltraLight';
   src:
     url('./IRANSansWeb_Regular.ttf') format('ttf'),
@@ -26,6 +29,7 @@
 }
 
 @font-face {
+   font-display: swap;
   font-family: 'iranSansLight';
   src:
     url('./IRANSansWeb_Light.ttf') format('ttf'),
@@ -35,6 +39,7 @@
 }
 
 @font-face {
+   font-display: swap;
   font-family: 'iranSansRegular';
   src:
     url('./IRANSansWeb_Regular.ttf') format('ttf'),

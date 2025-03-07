@@ -3,18 +3,17 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer'
 import { Person } from '@/components/common/Person'
 import { Link } from 'react-router-dom'
 import { routes } from '@/constant/variables'
+import { QuestionListItemProps } from '@/types/prop-types'
 
-interface Props {
-  shouldShowDetails?: boolean
-  id: string
-  title: string
-  text: string
-  answersCount: string
-  time: string
-  date: string
-}
-
-export const QuestionListItem = ({ shouldShowDetails, id, answersCount, date, text, time, title }: Props) => {
+export const QuestionListItem = ({
+  shouldShowDetails,
+  id,
+  answersCount,
+  date,
+  text,
+  time,
+  title,
+}: QuestionListItemProps) => {
   return (
     <Card variant="outlined" sx={{ boxShadow: 1, borderRadius: 2 }}>
       {/* Header Section */}
@@ -42,6 +41,7 @@ export const QuestionListItem = ({ shouldShowDetails, id, answersCount, date, te
       {/* Content Section */}
       <CardContent>
         <Typography variant="caption">{text}</Typography>
+        {/* <Typography variant="caption" dangerouslySetInnerHTML={{ __html: text }} /> */}
       </CardContent>
       <Divider />
       {/* Footer Section */}
